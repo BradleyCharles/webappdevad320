@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 // Serve static files from the "public" directory
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Define default route
 app.get('/', (req, res) => {
@@ -12,6 +13,16 @@ app.get('/', (req, res) => {
 // Define about route
 app.get('/about', (req, res) => {
     res.sendFile(__dirname + '/public/about.html');
+});
+
+// Route for "/foo" using next() method
+app.get('/foo', (req, res, next) => {
+
+    // Randomly choose between "sometimes this" and "sometimes that"
+    req.randomText = Math.random() < 0.5 ? 'sometimes this' : 'sometimes that';
+    next(); // Pass control to the next middleware
+}, (req, res) => {
+    res.send(req.randomText);
 });
 
 // Middleware for handling 404 errors
