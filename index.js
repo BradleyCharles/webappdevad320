@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/public/index.html');
 });
 
-// Define about route
+// Define "/about" route
 app.get('/about', (req, res) => {
     res.sendFile(__dirname + '/public/about.html');
 });
@@ -24,9 +24,15 @@ app.get('/foo', (req, res, next) => {
         next();
     }
 });
-
 app.get('/foo', (req, res) => {
     res.send('and sometimes that');
+});
+
+// Route that handles query strings. e.g. ?param1=Hello&param2=World
+app.get('/get', (req, res) => {
+    const parameters = req.query;
+    console.log('Query Parameters:', parameters);
+    res.send('Page loading successfully. Check console');
 });
 
 // Route with parameter ":username"
