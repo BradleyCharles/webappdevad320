@@ -15,6 +15,8 @@ app.get('/about', (req, res) => {
     res.sendFile(__dirname + '/public/about.html');
 });
 
+
+
 // Route for "/foo" using next() method
 app.get('/foo', (req, res, next) => {
     // Math.random to determine if you send this or that.
