@@ -3,4 +3,8 @@ Express web server for ad320
 
 Run "npm start" from your terminal or use the included script.
 
-The /foo route will check if the random number generator is less than half and if it is more than half then it will pass to the next route with the next() method.
+----Implement Conditional Routing in an Express NodeJS Server 1----
+The route for "/foo" where the response is either 'sometimes this' or 'and sometimes that' is based on a random number. If the random number is less than 0.5, the first response is sent; otherwise, the control is passed to the next route, and the second response is sent.
+
+----Implement Regular Expressions in Express Route Paths 2----
+The route for "/user" or "/username" will give a single response. The (name)? part makes the "name" optional, so both "/user" and "/username" will be handled by this route.
