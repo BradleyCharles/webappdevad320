@@ -29,6 +29,12 @@ app.get('/foo', (req, res) => {
     res.send('and sometimes that');
 });
 
+// Route with parameter ":username"
+app.get('/user/:username', (req, res) => {
+    const username = req.params.username;
+    res.send(`Hello ${username}`);
+});
+
 // Route using regular expression for "/user" and "/username"
 app.get(/\/user(name)?/, (req, res) => {
     res.send('Hello /user and/or /username!');
