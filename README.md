@@ -15,3 +15,8 @@ This route uses :username to gather the value entered and store it in a variable
 ----Handling Query Strings in Express 4----
 http://localhost:3000/get?param1=Hello&param2=World.  /get will direct you to the correct route where the parameters can be entered and recieved. The address is broken down as such: ? param1 = Hello $ param2 = World.
 The values Hello and World are assigned to variables param1 and param2.
+
+----Configuring ESLint in a Node.js Project----
+I followed the steps you provided to get ESLint installed. I used stack overflow and eslint.org to get the rules configured.
+I had an issue with the rule that I used being outdated and I had to search through stack overflow posts to find a solution.
+I can see how ESLint can be very useful in maintaining the format of my files and catching small mistakes that might not stop the code from running but might cause issues down the road, especially if there are multiple people working on the project.
