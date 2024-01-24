@@ -8,3 +8,6 @@ The route for "/foo" where the response is either 'sometimes this' or 'and somet
 
 ----Implement Regular Expressions in Express Route Paths 2----
 The route for "/user" or "/username" will give a single response. The (name)? part makes the "name" optional, so both "/user" and "/username" will be handled by this route.
+
+----Handling Route Parameters in Express 3----
+This route uses :username to gather the value entered and store it in a variable that is then called by the JavaScript to use in the message. 
