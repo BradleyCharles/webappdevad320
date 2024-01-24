@@ -15,22 +15,23 @@ app.get('/about', (req, res) => {
     res.sendFile(__dirname + '/public/about.html');
 });
 
-
-//This is a test
-
-
 // Route for "/foo" using next() method
 app.get('/foo', (req, res, next) => {
     // Math.random to determine if you send this or that.
     if (Math.random() < 0.5){
         res.send('sometimes this');
-    }else{
+    } else {
         next();
     }
 });
 
 app.get('/foo', (req, res) => {
     res.send('and sometimes that');
+});
+
+// Route using regular expression for "/user" and "/username"
+app.get(/\/user(name)?/, (req, res) => {
+    res.send('Matching both /user and /username');
 });
 
 // Middleware for handling 404 errors
