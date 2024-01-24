@@ -11,3 +11,7 @@ The route for "/user" or "/username" will give a single response. The (name)? pa
 
 ----Handling Route Parameters in Express 3----
 This route uses :username to gather the value entered and store it in a variable that is then called by the JavaScript to use in the message. 
+
+----Handling Query Strings in Express 4----
+http://localhost:3000/get?param1=Hello&param2=World.  /get will direct you to the correct route where the parameters can be entered and recieved. The address is broken down as such: ? param1 = Hello $ param2 = World.
+The values Hello and World are assigned to variables param1 and param2.
