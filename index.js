@@ -31,7 +31,7 @@ app.get('/foo', (req, res) => {
 
 // Route using regular expression for "/user" and "/username"
 app.get(/\/user(name)?/, (req, res) => {
-    res.send('Matching both /user and /username');
+    res.send('Hello /user and/or /username!');
 });
 
 // Middleware for handling 404 errors
