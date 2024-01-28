@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">  
+</head>
+<script type="module"  src="api.js"></script>
+<script  type="module" >
+import { fetchDogBreeds } from './api.js';
+
+// Function to initialize and display dog breeds
+async function initializeDogBreeds() {
+  try {
+    // Fetch dog breeds using the function from api.js
+    const dogBreeds = await fetchDogBreeds();
+
+    // Access the dogBreeds variable directly
+    console.log('Dog breeds:', dogBreeds);
+
+    // Create a table with 5 columns
+    let tableHtml = '<table border="1"><tr>';
+    const columns = 5;
+    let count = 0;
+
+    // Populate the table with dog breeds
+    dogBreeds.forEach(breed => {
+      if (count % columns === 0 && count !== 0) {
+        tableHtml += '</tr><tr>';
+      }
+      tableHtml += `<td>${breed}</td>`;
+      count++;
+    });
+
+    tableHtml += '</tr></table>';
+
+    // Display the table in the designated element
+    document.getElementById("breedList").innerHTML = tableHtml;
+
+    // Continue with other initialization logic
+  } catch (error) {
+    console.error('Error initializing dog breeds:', error.message);
+  }
+}
+
+// Call the function on page load
+initializeDogBreeds();
+
+// Function to handle breed selection (you can customize this)
+function selectBreed() {
+  const selectedBreed = document.getElementById("breedInput").value;
+  console.log('Selected Breed:', selectedBreed);
+
+
+
+
+
+
+  
+}
+
+</script>
+
+<body>
+
+    <header>
+        <div class="inner-header">
+        </div>
+    </header>
+
+    <div id="wrapper">
+
+        <main style="text-align:center">
+          <h2>Dog Facts!</h2>
+          <div id="breedList"></div>
+          <div>
+            <h3>Choose a Breed</h3>
+            <input type="text" id="breedInput" placeholder="Enter a breed...">
+            <button onclick="selectBreed()">Select</button>
+          </div>
+        </main>
+
+        <aside>
+
+        </aside>
+
+        <footer>
+
+        </footer>
+
+    </div> <!-- Closing wrapper -->
+
+</body>
+</html>
