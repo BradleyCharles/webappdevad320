@@ -1,66 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Index Page</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">  
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+    <style>
+        /* Add CSS for centering tables */
+        #table1,
+        #table2 {
+            margin: auto;
+            text-align: center;
+        }
+    </style>
 </head>
-<script type="module"  src="api.js"></script>
-<script  type="module" >
-import { fetchDogBreeds } from './api.js';
 
-// Function to initialize and display dog breeds
-async function initializeDogBreeds() {
-  try {
-    // Fetch dog breeds using the function from api.js
-    const dogBreeds = await fetchDogBreeds();
+<script type="module" src="api.js"></script>
 
-    // Access the dogBreeds variable directly
-    console.log('Dog breeds:', dogBreeds);
+<script type="module">
+    import { fetchDogBreeds } from './api.js';
 
-    // Create a table with 5 columns
-    let tableHtml = '<table border="1"><tr>';
-    const columns = 5;
-    let count = 0;
+    // Function to initialize and display dog breeds
+    async function initializeDogBreeds() {
+    try {
+        // Fetch dog breeds using the function from api.js
+        const dogBreeds = await fetchDogBreeds();
 
-    // Populate the table with dog breeds
-    dogBreeds.forEach(breed => {
-      if (count % columns === 0 && count !== 0) {
-        tableHtml += '</tr><tr>';
-      }
-      tableHtml += `<td>${breed}</td>`;
-      count++;
-    });
+        // Access the dogBreeds variable directly
+        console.log('Dog breeds:', dogBreeds);
 
-    tableHtml += '</tr></table>';
+        // Get reference to table1
+        const table1 = document.getElementById('table1');
 
-    // Display the table in the designated element
-    document.getElementById("breedList").innerHTML = tableHtml;
+        // Create a new table body
+        const tbody = document.createElement('tbody');
 
-    // Continue with other initialization logic
-  } catch (error) {
-    console.error('Error initializing dog breeds:', error.message);
-  }
+        // Append the tbody to table1
+        table1.appendChild(tbody);
+
+        // Populate table1 with the first 10 dog breeds
+        for (let i = 0; i < 10; i++) {
+            const breed = dogBreeds[i].name;
+
+            // Create a new row
+            const row = tbody.insertRow();
+
+            // Create cells and set content
+            const cell = row.insertCell(0);
+            cell.innerHTML = breed; // You should replace this with the actual property you want to display
+        }
+    } catch (error) {
+        console.error('Error initializing dog breeds:', error.message);
+    }
 }
 
-// Call the function on page load
-initializeDogBreeds();
-
-// Function to handle breed selection (you can customize this)
-function selectBreed() {
-  const selectedBreed = document.getElementById("breedInput").value;
-  console.log('Selected Breed:', selectedBreed);
-
-
-
-
-
-
-  
-}
-
+    // Call the function on page load
+    initializeDogBreeds();
 </script>
 
 <body>
@@ -73,13 +70,39 @@ function selectBreed() {
     <div id="wrapper">
 
         <main style="text-align:center">
-          <h2>Dog Facts!</h2>
-          <div id="breedList"></div>
-          <div>
-            <h3>Choose a Breed</h3>
-            <input type="text" id="breedInput" placeholder="Enter a breed...">
-            <button onclick="selectBreed()">Select</button>
-          </div>
+            <div id="table1">
+                <h3>Dog Facts!</h3>
+                <table border="1">
+                    <!-- Table1 content will be populated using the JavaScript code -->
+                </table>
+            </div>
+            <div id="table2">
+                <h3>Second Table</h3>
+                <table border="1">
+                    <tr>
+                        <td>Name:</td>
+                        <td>dogName</td>
+                    </tr>
+                    <tr>
+                        <td>Life Span:</td>
+                        <td>dogLife</td>
+                    </tr>
+                    <tr>
+                        <td>Female Weight:</td>
+                        <td>dogWeightF</td>
+                    </tr>
+                    <tr>
+                        <td>Male Weight:</td>
+                        <td>dogWeightM</td>
+                    </tr>
+                    <tr>
+                        <td>Hypoallergenic:</td>
+                        <td>alergy</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+
         </main>
 
         <aside>
@@ -92,5 +115,13 @@ function selectBreed() {
 
     </div> <!-- Closing wrapper -->
 
+    <script>
+        // Function to handle breed selection (you can customize this)
+        function selectBreed(breed) {
+            console.log('Selected Breed:', breed);
+            // You can now use the selected breed as needed
+        };
+    </script>
 </body>
+
 </html>

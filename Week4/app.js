@@ -7,12 +7,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Define default route
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '../public/index.html');
+    res.sendFile(__dirname + '/public/index.html');
 });
 
 // Middleware for handling 404 errors
 app.use((req, res) => {
-    res.sendFile(__dirname + '../public/404.html');
+    res.sendFile(__dirname + '/public/404.html');
 });
 
 // Start the server

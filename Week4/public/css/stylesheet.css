@@ -13,4 +13,24 @@ body {
     max-width: 100%;
     max-height: 100%;
   }
-
+  #table1,
+  #table2 {
+      display: inline-block;
+      vertical-align: top;
+      margin: 10px; /* Adjust margin as needed */
+      text-align: center;
+  }
+  
+  #wrapper {
+      text-align: center;
+  }
+  
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+  
+  table, th, td {
+      border: 1px solid black;
+  }
+  
