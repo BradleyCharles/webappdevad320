@@ -8,37 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
 </head>
-
 <script type="module" src="api.js"></script>
-<script type="module">
-    import { updateDog } from './api.js';
 
-    async function callUpdateDog(i) {
-            try {
-                await updateDog(i);
-                // Optional: Add any code to handle successful completion
-            } catch (error) {
-                console.error("Error calling updateDog:", error);
-                // Optional: Add any code to handle errors
-            }
-        }
+<!--Importing the updateDog function from api.js module-->
+<script type="module"> import { updateDog } from './api.js';
 
+// Async function to call updateDog with error handling
+async function callUpdateDog(i) {
+    try {
+        await updateDog(i);
+    } catch (error) {
+        console.error("Error calling updateDog:", error);
+    }
+}
 
-        document.getElementById('dogName0').addEventListener('click', () => callUpdateDog(0));
-        document.getElementById('dogName1').addEventListener('click', () => callUpdateDog(1));
-        document.getElementById('dogName2').addEventListener('click', () => callUpdateDog(2));
-        document.getElementById('dogName3').addEventListener('click', () => callUpdateDog(3));
-        document.getElementById('dogName4').addEventListener('click', () => callUpdateDog(4));
-        document.getElementById('dogName5').addEventListener('click', () => callUpdateDog(5));
-        document.getElementById('dogName6').addEventListener('click', () => callUpdateDog(6));
-        document.getElementById('dogName7').addEventListener('click', () => callUpdateDog(7));
-        document.getElementById('dogName8').addEventListener('click', () => callUpdateDog(8));
-        document.getElementById('dogName9').addEventListener('click', () => callUpdateDog(9));
+// Add event listeners to buttons with different IDs to call callUpdateDog with specific parameters
+document.getElementById('dogName0').addEventListener('click', () => callUpdateDog(0));
+document.getElementById('dogName1').addEventListener('click', () => callUpdateDog(1));
+document.getElementById('dogName2').addEventListener('click', () => callUpdateDog(2));
+document.getElementById('dogName3').addEventListener('click', () => callUpdateDog(3));
+document.getElementById('dogName4').addEventListener('click', () => callUpdateDog(4));
+document.getElementById('dogName5').addEventListener('click', () => callUpdateDog(5));
+document.getElementById('dogName6').addEventListener('click', () => callUpdateDog(6));
+document.getElementById('dogName7').addEventListener('click', () => callUpdateDog(7));
+document.getElementById('dogName8').addEventListener('click', () => callUpdateDog(8));
+document.getElementById('dogName9').addEventListener('click', () => callUpdateDog(9));
 
 </script>
-
-
-
 <body>
 
     <header>
@@ -47,9 +43,9 @@
     </header>
 
     <div id="wrapper">
-
         <main style="text-align:center">
-            <div id="table1">
+
+            <div id="table1"> <!-- Table for breed selection with buttons -->
                 <h3>Choose a breed!</h3>
                 <table border="1">
                     <tr>
@@ -84,7 +80,8 @@
                     </tr>
                 </table>
             </div>
-            <div id="table2">
+
+            <div id="table2"> <!-- Table for displaying dog facts -->
                 <h3>Dog facts!</h3>
                 <table border="1">
                     <tr>
