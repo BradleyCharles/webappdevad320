@@ -1,36 +1,28 @@
 body {
     display: flex;
-    flex-direction: column; /* Added to stack div elements vertically */
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     background-color: #131516;
     color: #d8d4cf;
-  }
+}
 
-  img {
+img {
     max-width: 100%;
     max-height: 100%;
-  }
-  #table1,
-  #table2 {
-      display: inline-block;
-      vertical-align: top;
-      margin: 10px; /* Adjust margin as needed */
-      text-align: center;
-  }
-  
-  #wrapper {
-      text-align: center;
-  }
-  
-  table {
-      border-collapse: collapse;
-      width: 100%;
-  }
-  
-  table, th, td {
-      border: 1px solid black;
-  }
-  
+}
+
+#table1,
+#table2 {
+    display: inline-block;
+    margin: 20px; /* Adjust margin as needed */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#table2 {
+    max-width: 25%;
+}
