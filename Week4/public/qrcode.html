@@ -26,7 +26,6 @@
         }
     </style>
 </head>
-<script src="api.js"></script>
 <body>
 
     <header style="text-align:center">
@@ -40,7 +39,7 @@
         <main style="text-align:center">
 
             <!-- Text Input Section -->
-            <div id="textInput">
+            <div id="urlInput">
                 <input type="text" id="textInput" name="textInput">
             </div>
 
@@ -58,7 +57,7 @@
 
             <!-- Radio Options Section -->
             <div id="radio">
-                <input type="radio" id="radioOption1" name="radioGroup" value="png">
+                <input type="radio" id="radioOption1" name="radioGroup" value="png" checked>
                 <label for="radioOption1">PNG</label>
 
                 <input type="radio" id="radioOption2" name="radioGroup" value="svg">
@@ -84,7 +83,6 @@ const getQR = () => {
     // Get user input and size/type values
     let url = document.getElementById('textInput').value;
     let select = document.getElementById('selectSize').value;
-    let type = document.getElementsByName('radioGroup').value;
     
     // Check if the input starts with "https://"
     if (!url.startsWith("https://")) {
@@ -108,18 +106,16 @@ const getQR = () => {
             size = 10;
     }
 
-    let radioButtons = document.getElementsByName('radioGroup');
-
     // Iterate through radio buttons to find the selected one
+    let radioButtons = document.getElementsByName('radioGroup');
     for (let i = 0; i < radioButtons.length; i++) {
         if (radioButtons[i].checked) {
-            // Display the value of the selected radio button
             type = radioButtons[i].value;
         }
     }
 
     // Construct the QR code image path
-    let imagePath = `https://qrtag.net/api/qr_${size}.${type}?url=${url}`;
+    const imagePath = `https://qrtag.net/api/qr_${size}.${type}?url=${url}`;
 
     // Get the image element by its id
     const imageElement = document.getElementById('qrtag');
