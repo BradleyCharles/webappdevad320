@@ -79,6 +79,16 @@
 
 <script>
 
+const isValidUrl = urlString => {
+    var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+    '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
+    '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
+    '(\\#[-a-z\\d_]*)?$','i'); // validate fragment locator
+    return !!urlPattern.test(urlString);
+}
+
 const getQR = () => {
     // Get user input and size/type values
     let url = document.getElementById('textInput').value;
@@ -114,14 +124,20 @@ const getQR = () => {
         }
     }
 
-    // Construct the QR code image path
-    const imagePath = `https://qrtag.net/api/qr_${size}.${type}?url=${url}`;
+    if (isValidUrl(url)){
+        // Construct the QR code image path
+        const imagePath = `https://qrtag.net/api/qr_${size}.${type}?url=${url}`;
 
-    // Get the image element by its id
-    const imageElement = document.getElementById('qrtag');
+        // Get the image element by its id
+        const imageElement = document.getElementById('qrtag');
 
-    // Set the src attribute of the image
-    imageElement.src = imagePath;
+        // Set the src attribute of the image
+        imageElement.src = imagePath;
+        console.log(imagePath);
+    }else{
+        alert('Please enter a valid address');
+    }
+    
 };
 
 
