@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        main > div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<script src="api.js"></script>
+<body>
+
+    <header style="text-align:center">
+        <div class="inner-header">
+            <h1>QR Code Generator</h1>
+            <h3>Enter your website and choose some options!</h3>
+        </div>
+    </header>
+
+    <div id="wrapper">
+        <main style="text-align:center">
+
+            <!-- Text Input Section -->
+            <div id="textInput">
+                <input type="text" id="textInput" name="textInput">
+            </div>
+
+            <!-- Select Size Section -->
+            <div id="select">
+                <label for="selectSize">Select size:</label>
+                <select id="selectSize" name="selectSize">
+                    <option value="option1">2</option>
+                    <option value="option2">4</option>
+                    <option value="option3">6</option>
+                    <option value="option4">8</option>
+                    <option value="option5">10</option>
+                </select>
+            </div>
+
+            <!-- Radio Options Section -->
+            <div id="radio">
+                <input type="radio" id="radioOption1" name="radioGroup" value="png">
+                <label for="radioOption1">PNG</label>
+
+                <input type="radio" id="radioOption2" name="radioGroup" value="svg">
+                <label for="radioOption2">SVG</label>
+            </div>
+
+            <!-- Create QR Code Button -->
+            <div id="button">
+                <button onclick="getQR()">Create QR code</button>
+            </div>
+
+            <!-- Image Section -->
+            <div id="image">
+                <img id="qrtag">
+            </div>
+
+        </main>
+    </div> <!-- Closing wrapper -->
+
+<script>
+
+const getQR = () => {
+    // Get user input and size/type values
+    let url = document.getElementById('textInput').value;
+    let select = document.getElementById('selectSize').value;
+    let type = document.getElementsByName('radioGroup').value;
+    
+    // Check if the input starts with "https://"
+    if (!url.startsWith("https://")) {
+        url = "https://" + url;
+    }
+
+    switch (select) {
+        case "option1":
+            size = 2;
+            break;
+        case "option2":
+            size = 4;
+            break;
+        case "option3":
+            size = 6;
+            break;
+        case "option4":
+            size = 8;
+            break;
+        default:
+            size = 10;
+    }
+
+    let radioButtons = document.getElementsByName('radioGroup');
+
+    // Iterate through radio buttons to find the selected one
+    for (let i = 0; i < radioButtons.length; i++) {
+        if (radioButtons[i].checked) {
+            // Display the value of the selected radio button
+            type = radioButtons[i].value;
+        }
+    }
+
+    // Construct the QR code image path
+    let imagePath = `https://qrtag.net/api/qr_${size}.${type}?url=${url}`;
+
+    // Get the image element by its id
+    const imageElement = document.getElementById('qrtag');
+
+    // Set the src attribute of the image
+    imageElement.src = imagePath;
+};
+
+
+</script>
+</body>
+</html>
