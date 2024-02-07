@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Index Page</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
+
+<style>
+    body {
+    display: flex;
+    flex-direction: column; /* Added to stack div elements vertically */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>    
+</head>
+<body>
+
+    <header>
+        <div class="inner-header">
+        </div>
+    </header>
+
+    <!-- <nav>
+        <ul>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav> -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<div id="wrapper">
+
+    <main>
+
+        <div id="root">
+        <h1>Hello</h1>
+        </div>
+    </main>
+
+<script type="text/babel">
+
+    function myApp(){
+        return <h1>World</h1>
+    }
+    const container = document.getElementById("root");
+    const root = ReactDOM.createRoot(container);
+
+    root.render(<MyApp/>);
+
+</script>
+
+
+
+    <aside>
+
+    </aside>
+
+
+    <footer>
+
+    </footer>
+
+</div> <!-- Closing wrapper -->
+
+</body>
+</html>
