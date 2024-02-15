@@ -3,6 +3,6 @@ export default function FeatureToggle({isEnabled, featureName}) {
             return <div>{featureName}</div>;
             
         }
-        return '<No Feature>';
+        return '<Missing Feature>';
 }
 
