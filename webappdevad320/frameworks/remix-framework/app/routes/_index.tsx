@@ -10,33 +10,42 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix blogs!</h1>
-      <ul> Check out these fine blogs!
+      <h1>Welcome to the blog depot!</h1>
+      <ul>
         <li>
           <a
             target="_blank"
-            href="./blog1.tsx"
+            href="./blog1"
             rel="noreferrer"
           >
-            Blog #1
-          </a> 
+            top blog #1
+          </a>
         </li>
         <li>
           <a
             target="_blank"
-            href="https://remix.run/tutorials/jokes"
+            href="./blog2"
             rel="noreferrer"
           >
-            Blog #2
+            top blog #2
           </a>
         </li>
         <li>
         <a
             target="_blank"
-            href="https://remix.run/tutorials/jokes"
+            href="./blog3"
             rel="noreferrer"
           >
-          Blog #3
+            top blog #3
+          </a>
+        </li>
+        <li>
+        <a
+            target="_blank"
+            href="./blog4"
+            rel="noreferrer"
+          >
+            top blog #4
           </a>
         </li>
       </ul>

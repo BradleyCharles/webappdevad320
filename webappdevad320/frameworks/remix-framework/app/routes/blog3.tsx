@@ -7,10 +7,10 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function blog1() {
+export default function blog3() {
   return (
     <div>
-      <h1>Blog #1</h1>
+        <h1>Blog #3</h1>
       <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus condimentum lectus ut blandit. Nulla hendrerit felis quis dignissim ultrices. Nam eros risus, aliquet at ex vel, efficitur aliquam mauris. Cras tincidunt elit in varius semper. Nulla eu velit libero. Aenean quis laoreet ligula. Vestibulum eget neque eu lacus venenatis aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam pharetra erat neque, in dictum sem ultricies vel.
         </p><br></br>
