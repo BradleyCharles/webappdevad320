@@ -1,10 +1,13 @@
 import express from 'express';
 import { data } from './dog_facts.mjs';
-
+//const path = 'path';
 const app = express();
 
 // Import data from dog_facts.js
 let numberOfFacts = 0;
+
+// Serve static files from the "public" directory
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // Endpoint to get dog facts
 app.get('/facts:numberOfFacts', (req, res) => {
@@ -42,6 +45,11 @@ app.get('/facts', (req, res) => {
       res.status(400).json({ error: error.message, success: false });
     }
   });
+
+// Middleware for handling 404 errors
+app.use((req, res) => {
+    res.sendFile(__dirname + '/404.html');
+});
 
 // Set the port to listen on
 const PORT = 3000;
