@@ -19,4 +19,4 @@ const UserProfile = (props) => {
   );
 };
 
-export default UserProfile;
+export default UserProfile; //Need to include data for props.first and props.last in app.js
