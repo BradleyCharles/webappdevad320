@@ -1,127 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Index Page</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/stylesheet.css" type="text/css">
-</head>
-<script type="module" src="api.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css" />
+  </head>
+  <script type="module" src="api.js"></script>
 
-<!--Importing the updateDog function from api.js module-->
-<script type="module"> import { updateDog } from './api.js';
+  <!--Importing the updateDog function from api.js module-->
+  <script type="module">
+    import { updateDog } from "./api.js";
 
-// Async function to call updateDog with error handling
-async function callUpdateDog(i) {
-    try {
+    // Async function to call updateDog with error handling
+    async function callUpdateDog(i) {
+      try {
         await updateDog(i);
-    } catch (error) {
+      } catch (error) {
         console.error("Error calling updateDog:", error);
+      }
     }
-}
 
-// Add event listeners to buttons with different IDs to call callUpdateDog with specific parameters
-//document.getElementById('dogName0').addEventListener('click', () => callUpdateDog(0));
-document.getElementById('dogName1').addEventListener('click', () => callUpdateDog(1));
-document.getElementById('dogName2').addEventListener('click', () => callUpdateDog(2));
-document.getElementById('dogName3').addEventListener('click', () => callUpdateDog(3));
-document.getElementById('dogName4').addEventListener('click', () => callUpdateDog(4));
-document.getElementById('dogName5').addEventListener('click', () => callUpdateDog(5));
-document.getElementById('dogName6').addEventListener('click', () => callUpdateDog(6));
-document.getElementById('dogName7').addEventListener('click', () => callUpdateDog(7));
-document.getElementById('dogName8').addEventListener('click', () => callUpdateDog(8));
-document.getElementById('dogName9').addEventListener('click', () => callUpdateDog(9));
-
-</script>
-<body>
-
+    // Add event listeners to buttons with different IDs to call callUpdateDog with specific parameters
+    //document.getElementById('dogName0').addEventListener('click', () => callUpdateDog(0));
+    document
+      .getElementById("dogName1")
+      .addEventListener("click", () => callUpdateDog(1));
+    document
+      .getElementById("dogName2")
+      .addEventListener("click", () => callUpdateDog(2));
+    document
+      .getElementById("dogName3")
+      .addEventListener("click", () => callUpdateDog(3));
+    document
+      .getElementById("dogName4")
+      .addEventListener("click", () => callUpdateDog(4));
+    document
+      .getElementById("dogName5")
+      .addEventListener("click", () => callUpdateDog(5));
+    document
+      .getElementById("dogName6")
+      .addEventListener("click", () => callUpdateDog(6));
+    document
+      .getElementById("dogName7")
+      .addEventListener("click", () => callUpdateDog(7));
+    document
+      .getElementById("dogName8")
+      .addEventListener("click", () => callUpdateDog(8));
+    document
+      .getElementById("dogName9")
+      .addEventListener("click", () => callUpdateDog(9));
+  </script>
+  <body>
     <header>
-        <div class="inner-header">
-        </div>
+      <div class="inner-header"></div>
     </header>
 
     <div id="wrapper">
-        <main style="text-align:center">
+      <main style="text-align: center">
+        <div id="table1">
+          <!-- Table for breed selection with buttons -->
+          <h3>Choose a breed!</h3>
+          <table border="1">
+            <tr>
+              <td>
+                <button id="dogName0" onclick="callUpdateDog(0)"></button>
+              </td>
+            </tr>
+            <tr>
+              <td><button id="dogName1"></button></td>
+            </tr>
+            <tr>
+              <td><button id="dogName2"></button></td>
+            </tr>
+            <tr>
+              <td><button id="dogName3"></button></td>
+            </tr>
+            <tr>
+              <td><button id="dogName4"></button></td>
+            </tr>
+            <tr>
+              <td><button id="dogName5"></button></td>
+            </tr>
+            <tr>
+              <td><button id="dogName6"></button></td>
+            </tr>
+            <tr>
+              <td><button id="dogName7"></button></td>
+            </tr>
+            <tr>
+              <td><button id="dogName8"></button></td>
+            </tr>
+            <tr>
+              <td><button id="dogName9"></button></td>
+            </tr>
+          </table>
+        </div>
 
-            <div id="table1"> <!-- Table for breed selection with buttons -->
-                <h3>Choose a breed!</h3>
-                <table border="1">
-                    <tr>
-                        <td><button id="dogName0" onclick="callUpdateDog(0)"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName1"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName2"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName3"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName4"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName5"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName6"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName7"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName8"></button></td>
-                    </tr>
-                    <tr>
-                        <td><button id="dogName9"></button></td>
-                    </tr>
-                </table>
-            </div>
+        <div id="table2">
+          <!-- Table for displaying dog facts -->
+          <h3>Dog facts!</h3>
+          <table border="1">
+            <tr>
+              <td>Name:</td>
+              <td id="dogName"></td>
+            </tr>
+            <tr>
+              <td>Life Span:</td>
+              <td id="dogLife"></td>
+            </tr>
+            <tr>
+              <td>Female Weight:</td>
+              <td id="dogWeightF"></td>
+            </tr>
+            <tr>
+              <td>Male Weight:</td>
+              <td id="dogWeightM"></td>
+            </tr>
+            <tr>
+              <td>Hypoallergenic:</td>
+              <td id="dogAlergy"></td>
+            </tr>
+            <tr>
+              <td>Description:</td>
+              <td id="dogDesc"></td>
+            </tr>
+          </table>
+        </div>
+      </main>
 
-            <div id="table2"> <!-- Table for displaying dog facts -->
-                <h3>Dog facts!</h3>
-                <table border="1">
-                    <tr>
-                        <td>Name:</td>
-                        <td id="dogName"></td>
-                    </tr>
-                    <tr>
-                        <td>Life Span:</td>
-                        <td id="dogLife"></td>
-                    </tr>
-                    <tr>
-                        <td>Female Weight:</td>
-                        <td id="dogWeightF"></td>
-                    </tr>
-                    <tr>
-                        <td>Male Weight:</td>
-                        <td id="dogWeightM"></td>
-                    </tr>
-                    <tr>
-                        <td>Hypoallergenic:</td>
-                        <td id="dogAlergy"></td>
-                    </tr>
-                    <tr>
-                        <td>Description:</td>
-                        <td id="dogDesc"></td>
-                    </tr>
-                </table>
-            </div>
+      <aside></aside>
 
-        </main>
-
-        <aside>
-
-        </aside>
-
-        <footer>
-
-        </footer>
-
-    </div> <!-- Closing wrapper -->   
-
-</body>
+      <footer></footer>
+    </div>
+    <!-- Closing wrapper -->
+  </body>
 </html>

@@ -58,7 +58,7 @@ async function updateName() {
   } catch (error) { // Logs an error message if there's an issue with fetching or processing data
     console.error('Error updating dog name:', error.message);
   }
-} updateName();
+ } updateName();
 
 // Updates the information of a specific dog on the webpage
 export async function updateDog(i = 0) {
