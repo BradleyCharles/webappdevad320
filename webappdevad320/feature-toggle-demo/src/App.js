@@ -15,10 +15,6 @@ function App() {
     </div>
   );
 }
-var new = variable;
+
 
 export default App;
-
-
-
-var new = variable;
