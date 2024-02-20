@@ -12,7 +12,7 @@ function App() {
         <FeatureToggle isEnabled={true} featureName="Feature #4" />
         <FeatureToggle isEnabled={true} featureName="Feature #5" />
       </div>
-    </div>
+    </div> 
   );
 }
 
