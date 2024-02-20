@@ -2,9 +2,9 @@ import FeatureToggle from "./FeatureToggle.js";
 import "./App.css";
 
 function App() {
-  return (
+  return ( //Returns the imported component FeatureToggle with the values of isEnabled and featureName
     <div className="App">
-      <div className="Features">
+      <div className="Features">  
         <p>Features!</p>
         <FeatureToggle isEnabled={true} featureName="Feature #1" />
         <FeatureToggle isEnabled={true} featureName="Feature #2" />
