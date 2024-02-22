@@ -101,7 +101,7 @@ export default function RecipeGallery() {
           </div>
         </li>
       ))}
-    </ul>
+    </ul> 
   );
   return recipeList;
 }

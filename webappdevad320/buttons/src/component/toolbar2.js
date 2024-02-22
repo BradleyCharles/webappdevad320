@@ -1,21 +1,27 @@
 import React from "react";
 
-const CustomToolbar2 = ({ m, c }) => {
+const CustomToolbar2 = () => {
   const array = [
     { message: "Downloading! 1", children: "Download File 1" },
     { message: "Downloading! 2", children: "Download File 2" },
     { message: "Downloading! 3", children: "Download File 3" },
-    {},
   ];
 
-  const arrayMessage = array[m].message;
-  const arrayChildren = array[c].children;
-
-  const beep = () => {
-    alert(arrayMessage);
+  const beep = (message) => {
+    alert(message);
   };
 
-  return <button onClick={beep}>{arrayChildren}</button>;
+  const buttons = (
+    <div>
+      {array.map((button) => (
+        <button key={button.children} onClick={() => beep(button.message)}>
+          {button.children}
+        </button>
+      ))}
+    </div>
+  );
+
+  return buttons;
 };
 
-export { CustomToolbar2 }; 
+export { CustomToolbar2 };
