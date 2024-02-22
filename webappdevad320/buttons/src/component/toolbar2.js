@@ -18,4 +18,4 @@ const CustomToolbar2 = ({ m, c }) => {
   return <button onClick={beep}>{arrayChildren}</button>;
 };
 
-export { CustomToolbar2 };
+export { CustomToolbar2 }; 
