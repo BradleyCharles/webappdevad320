@@ -7,11 +7,7 @@ export default async function Main({header}) {
         {" "}
         <img className="left" src="images/art/art1.jpg" alt="art1" />
       </a>
-      <p>Thsi is my journey</p>
-      <p>Come with me</p>
-
-      <h2>Amazing Creatures</h2>
-      <hr />
+    
       <p>
         Vivamus venenatis volutpat lectus vitae laoreet. Orci varius natoque
         penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec

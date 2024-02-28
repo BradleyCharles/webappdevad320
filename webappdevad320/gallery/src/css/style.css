@@ -18,6 +18,9 @@
 
 body {
   background-image: url(../images/background.jpg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -102,24 +105,24 @@ nav a:hover {
   color: #ccc;
   box-sizing: border-box;
   height: 50px;
-  font-size: 1.25em;
+  font-size: 1.15em;
 }
 
 .home .navigation li:nth-child(1) a,
-.classes .navigation li:nth-child(2) a,
-.spells .navigation li:nth-child(3) a,
-.tools .navigation li:nth-child(4) a,
+.paintings .navigation li:nth-child(2) a,
+.drawings .navigation li:nth-child(3) a,
+.pottery .navigation li:nth-child(4) a,
 .contact .navigation li:nth-child(5) a {
   color: #ccc;
   height: 50px;
-  font-size: 1.25em;
+  font-size: 1.15em;
   padding-left: 10px;
 }
 
 .home .navigation li:nth-child(1),
-.classes .navigation li:nth-child(2),
-.spells .navigation li:nth-child(3),
-.tools .navigation li:nth-child(4),
+.paintings .navigation li:nth-child(2),
+.drawings .navigation li:nth-child(3),
+.pottery .navigation li:nth-child(4),
 .contact .navigation li:nth-child(5) {
   width: 115%;
 }
@@ -137,6 +140,7 @@ footer {
   color: #ccc;
   background: #242527;
   clear: both;
+  margin-top: auto;
 }
 
 footer a:hover {
@@ -186,6 +190,7 @@ main {
   float: left;
   background: #fcfaf8;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.4);
+  min-height: 800px;
 }
 
 main h1,
@@ -228,10 +233,46 @@ main h2 {
   display: block;
 }
 
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Adjust the gap between items */
+  justify-content: center; /* Center the grid horizontally */
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gallery-item a {
+  text-decoration: none; /* Optional: Remove underline from the link */
+}
+
+.showcase {
+  text-align: center;
+  margin-left: 50px;
+}
+
+.showcase a {
+  display: block;
+}
+
+.showcase img {
+  object-fit: contain;
+  height: 100vh;
+  width: 100vw;
+  /*   max-width: 90%;
+  max-height: 90%; */
+}
+
 img.center {
   margin: 0 auto;
   display: block;
-  margin-top: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 img.right,
@@ -242,7 +283,7 @@ img.left {
 
 img.left {
   float: left;
-  margin: 20px 30px 20px 20px;
+  margin: 10px;
 }
 
 img.right {
@@ -250,14 +291,14 @@ img.right {
   margin: 20px 20px 20px 30px;
 }
 
-.spells-wrapper img {
+.paintings-wrapper img {
   margin-left: 10px;
   margin-top: 10px;
   width: 100px;
 }
 
-.tools-wrapper,
-.spells-wrapper {
+.pottery-wrapper,
+.paintings-wrapper {
   width: 100%;
   max-width: 940px;
 }
@@ -267,13 +308,21 @@ img.right {
   max-width: 940px;
 }
 
-.spells-wrapper hr {
+.paintings-wrapper hr {
   margin-bottom: 20px;
 }
 
 .form img {
   width: 54%;
   margin-left: 20px;
+}
+
+.contact_page {
+  margin: 20px;
+}
+
+.slides {
+  list-style-type: none;
 }
 
 aside {
