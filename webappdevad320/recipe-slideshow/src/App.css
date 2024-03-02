@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.list {
+  background-color: #ccc;
+  border: 1px solid #696969;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.ul {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0px;
+}
+
+/* Assuming your outermost container is a flex container */
+.div-container {
+  display: flex;
+  justify-content: space-between; /* This will push the children to the opposite ends */
+}
+
+/* If you want to make them equally spaced and have equal width, you can use flex-grow */
+.IncreaseOne {
+  flex-grow: 1; /* This will make IncreaseOne grow and take available space */
+}
+
+.DecreaseOne {
+  flex-grow: 0; /* This will make DecreaseOne not grow and stay its original size */
+}
