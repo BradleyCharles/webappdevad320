@@ -93,11 +93,16 @@ export default function RecipeGallery() {
   const [buttonState, setButtonState] = useState(1);
 
   const handleIncrease = () => {
-    setButtonState((count) => count + 1);
+    setButtonState((prevCount) => {
+      const newCount = prevCount + 1;
+      return newCount > 10 ? 1 : newCount;
+    });
   };
-
   const handleDecrease = () => {
-    setButtonState((count) => count - 1);
+    setButtonState((prevCount) => {
+      const newCount = prevCount - 1;
+      return newCount < 1 ? 10 : newCount;
+    });
   };
 
   const filteredRecipes = recipe.filter((recipe) => recipe.id === buttonState);
@@ -106,26 +111,35 @@ export default function RecipeGallery() {
     <ul className="ul">
       <div>
         <div>
-          <IncreaseOne
-            buttonState={buttonState}
-            handleIncrease={handleIncrease}
-          />
           <DecreaseOne
             buttonState={buttonState}
             handleDecrease={handleDecrease}
           />
+          <IncreaseOne
+            buttonState={buttonState}
+            handleIncrease={handleIncrease}
+          />
         </div>
+        <br />
       </div>
       {filteredRecipes.map((recipe) => (
         <li className="list" key={recipe.id}>
           <div>
             <h3>{recipe.title}</h3>
+            <p style={{ maxWidth: "280px", padding: "10px" }}>
+              Ingredients: {recipe.ingredients.join(", ")}
+            </p>
             <img
+              className="slideshowImage"
               src={recipe.image}
               alt={recipe.title}
-              style={{ maxWidth: "300px", maxHeight: "200px" }}
+              style={{
+                maxWidth: "280px",
+                margin: "10px",
+                borderradius: "25px",
+                border: "1px solid #696969",
+              }}
             />
-            <p>Ingredients: {recipe.ingredients.join(", ")}</p>
           </div>
         </li>
       ))}

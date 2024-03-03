@@ -1,17 +1,17 @@
 import React from "react";
 
-const IncreaseOne = ({ buttonState, handleIncrease }) => {
+const DecreaseOne = ({ buttonState, handleDecrease }) => {
   return (
-    <div className="Button">
-      <button onClick={handleIncrease}>IncreaseOnce: {buttonState}</button>
+    <div className="Previous">
+      <button onClick={handleDecrease}>Previous</button>
     </div>
   );
 };
 
-const DecreaseOne = ({ buttonState, handleDecrease }) => {
+const IncreaseOne = ({ buttonState, handleIncrease }) => {
   return (
-    <div className="Button">
-      <button onClick={handleDecrease}>DecreaseOnce: {buttonState}</button>
+    <div className="Next">
+      <button onClick={handleIncrease}>Next</button>
     </div>
   );
 };
