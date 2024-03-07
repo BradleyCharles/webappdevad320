@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const Name = () => {
+const Options = () => {
   const [name, setName] = useState("");
 
   return (
@@ -15,4 +15,4 @@ const Name = () => {
   );
 };
 
-export default Name;
+export default Options;
