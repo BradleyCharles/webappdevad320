@@ -111,14 +111,8 @@ export default function RecipeGallery() {
     <ul className="ul">
       <div>
         <div>
-          <DecreaseOne
-            buttonState={buttonState}
-            handleDecrease={handleDecrease}
-          />
-          <IncreaseOne
-            buttonState={buttonState}
-            handleIncrease={handleIncrease}
-          />
+          <DecreaseOne handleDecrease={handleDecrease} />
+          <IncreaseOne handleIncrease={handleIncrease} />
         </div>
         <br />
       </div>

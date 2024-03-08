@@ -1,6 +1,6 @@
 import React from "react";
 
-const DecreaseOne = ({ buttonState, handleDecrease }) => {
+const DecreaseOne = ({ handleDecrease }) => {
   return (
     <div className="Previous">
       <button onClick={handleDecrease}>Previous</button>
@@ -8,7 +8,7 @@ const DecreaseOne = ({ buttonState, handleDecrease }) => {
   );
 };
 
-const IncreaseOne = ({ buttonState, handleIncrease }) => {
+const IncreaseOne = ({ handleIncrease }) => {
   return (
     <div className="Next">
       <button onClick={handleIncrease}>Next</button>
