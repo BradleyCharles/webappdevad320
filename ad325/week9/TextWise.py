@@ -1,18 +1,18 @@
 def reverse(text):
     array = list(text)
-    l = 0
-    r = len(text) - 1
-    print(r)
-    if l >= r:
+    left = 0
+    right = len(text) - 1
+    if left >= right:
         return array
 
-    def swap(l, r, array):
-        if l < r:
-            array[l], array[r] = array[r], array[l]
-            swap(l + 1, r - 1, array)
+    def swap(left, right, array):
+        if left < right:
+            array[left], array[right] = array[right], array[left]
+            swap(left + 1, right - 1, array)
 
-    swap(l, r, array)
+    swap(left, right, array)
     return ''.join(array)
 
 
+print("TestWise")
 print(reverse("TestWise"))
