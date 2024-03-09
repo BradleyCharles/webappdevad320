@@ -1,0 +1,116 @@
+from collections import deque
+import unittest
+
+
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+    def max_depth(self, root, count=0):
+        result = []
+        if root:
+            count += 1
+            result = self.max_depth(root.left, count)
+            result.append(count)
+            result += self.max_depth(root.right, count)
+            result.append(count)
+            count = 0
+        return result
+
+    def max_depth2(self, root):
+        if not root:
+            return 0
+
+        left_depth = self.max_depth2(root.left)
+        right_depth = self.max_depth2(root.right)
+
+        return max(left_depth, right_depth) + 1
+
+
+def preorder(node):
+    result = []
+
+    if node:
+        result.append(node.value)
+        result += preorder(node.left)
+        result += preorder(node.right)
+    return result
+
+
+def inorder(node):
+    result = []
+
+    if node:
+        result += inorder(node.left)
+        result.append(node.value)
+        result += inorder(node.right)
+    return result
+
+
+def postorder(node):
+    result = []
+
+    if node:
+        result += postorder(node.left)
+        result += postorder(node.right)
+        result.append(node.value)
+    return result
+
+
+def levelorder(node):
+    result = []
+    queue = deque([node])
+
+    while queue:
+        current_node = queue.popleft()
+        result.append(current_node.value)
+
+        if current_node.left:
+            queue.append(current_node.left)
+        if current_node.right:
+            queue.append(current_node.right)
+    return result
+
+
+root = TreeNode('1')
+root.left = TreeNode('2')
+root.left.left = TreeNode('3')
+root.left.left.left = TreeNode('4')
+root.left.left.left.left = TreeNode('4')
+root.left.right = TreeNode('3')
+root.right = TreeNode('2')
+root.right.left = TreeNode('3')
+root.right.right = TreeNode('3')
+root.right.right.left = TreeNode('3')
+root.right.right.right = TreeNode('3')
+root.right.right.left.left = TreeNode('3')
+root.right.right.left.right = TreeNode('3')
+root.right.right.left.left.left = TreeNode('3')
+root.right.right.left.left.left.left = TreeNode('3')
+root.right.right.left.left.left.left.right = TreeNode('3')
+root.right.right.left.left.left.left.right.left = TreeNode('3')
+
+print(preorder(root))
+print(root.max_depth(root))
+print(max(root.max_depth(root)))
+print(root.max_depth2(root))
+
+
+""" class testSymmetry(unittest.TestCase):
+ 
+    def test1(self):
+        self.assertEqual(preorder(root), ['10', '5', '3', '9', '20', '15', '25'])
+    
+    def test2(self):
+        self.assertEqual(inorder(root), ['3', '5', '9', '10', '15', '20', '25'])
+    
+    def test3(self):
+        self.assertEqual(postorder(root), ['3', '9', '5', '15', '25', '20', '10'])
+        
+    def test4(self):
+        self.assertEqual(levelorder(root), ['10', '5', '20', '3', '9', '15', '25'])
+
+if __name__ == '__main__':
+    unittest.main() """

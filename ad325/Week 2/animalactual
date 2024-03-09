@@ -1,0 +1,12 @@
+animals = ['lion', 'monkey', 'deer', 'snake', 'elephant'] #3
+four_legs =['lion', 'deer', 'elephant', 'horse', 'dog', 'cat']
+count = 0
+
+t1 = ['lion','lion','lion','lion','lion','lion'] #6
+t2 = ['snake','snake','snake','snake','snake','snake'] #0
+
+for index in t2:
+    if index in four_legs:
+        count += 1
+
+print("number of animals with four legs:", count)
