@@ -15,15 +15,16 @@ ticket_queue = queue.Queue()
 wait = random.random()*3
 
 
-def generate(count):
-    if (count <= 0):
+def generate(limit, count=1):
+    if (count > limit):
         return
     now = datetime.datetime.now()
-
     new_ticket = Ticket(count, now.strftime("%H:%M:%S"))
     ticket_queue.put(new_ticket)
-    count -= 1
-    generate(count)
+    count += 1
+    # define the max numer of seconds you wish to wait here
+    time.sleep(random.random()*3)
+    generate(limit, count)
 
 
 def process(count):
@@ -37,18 +38,10 @@ def process(count):
     process(count)
 
 
-generate(1)
-process(1)
+def test_ticketing_system(number_of_tickets):
+
+    generate(number_of_tickets)
+    process(number_of_tickets)
 
 
-""" class test_ticket_system(unittest.TestCase):
-    def test1(self):
-        while True:
-            print(time.time())
-            time.sleep(0.01)
-
-        
-
-
-if __name__ == '__main__':
-    unittest.main() """
+test_ticketing_system(5)  # define the number of tickets you want to test here

@@ -3,7 +3,6 @@ class Order:
         self.order_id = order_id
         self.customer_details = customer_details
         self.order_details = order_details
-
         self.other_info = other_info
 
 
@@ -49,7 +48,6 @@ class LinkedList:
         prev = None
         current = self.head
         while current:
-            print(current.next)
             next_node = current.next
             current.next = prev
             prev = current
@@ -73,6 +71,5 @@ order_list.append(order5)
 order_list.append(order6)
 
 order_list.display()
-# order_list.reverse()
-order_list.reverse_recursive()
+order_list.reverse()
 order_list.display()
