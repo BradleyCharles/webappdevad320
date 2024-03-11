@@ -4,7 +4,7 @@ function TaskManager() {
   const [tasks, setTasks] = useState([]);
   const [id, setId] = useState();
 
-  /*   const addTask = () => {
+  /*   const addTask = () => { 
     const newTask = {
       id: 0,
       title: 'task' + id,
