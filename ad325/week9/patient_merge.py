@@ -6,7 +6,11 @@ recite the problem-----------
 
 
 Ask questions:---------------
+Do we need to consider sorting by different criteria? Age or Name?
 
+Will we need to conbime records and merge data?
+
+how do we handle extra data that Healthmerge Inc doesn't record?
 
 explain your code------------
 
@@ -16,6 +20,8 @@ type code--------------------
 
 discuss complexity-----------
 
+space: O(1)
+Time:  O(n+m)
 
 run code with test cases-----
 """

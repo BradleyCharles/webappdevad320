@@ -1,8 +1,8 @@
 def reverse(text):
     array = list(text)
-    left = 0
-    right = len(text) - 1
-    if left >= right:
+    start = 0
+    end = len(text) - 1
+    if start >= end:
         return array
 
     def swap(left, right, array):
@@ -10,7 +10,7 @@ def reverse(text):
             array[left], array[right] = array[right], array[left]
             swap(left + 1, right - 1, array)
 
-    swap(left, right, array)
+    swap(start, end, array)
     return ''.join(array)
 
 
