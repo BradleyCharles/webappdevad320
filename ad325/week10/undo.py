@@ -20,7 +20,7 @@ class Undo:
     def delete(self):
         delete_operation = TextOperation("delete", self.operations[-1])
         self.operations.append(delete_operation)
-        self.test_str = slice(0, len(self.test_str))
+        # self.test_str = slice(0, len(self.test_str))
 
     def undo(self):
         top = self.operations.pop(-1)
@@ -38,6 +38,8 @@ class TestUndo(unittest.TestCase):
         undo.add('b')
         undo.add('c')
         undo.add('d')
+        print(undo.test_str)
+        undo.delete()
         print(undo.test_str)
 
 
