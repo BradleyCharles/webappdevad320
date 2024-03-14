@@ -2,36 +2,45 @@ import React, { useState } from "react";
 
 function TaskManager() {
   const [tasks, setTasks] = useState([]);
-  const [id, setId] = useState();
-
-  /*   const addTask = () => { 
-    const newTask = {
-      id: 0,
-      title: 'task' + id,
-      completed: false
-    };
-
-    setTasks({...tasks, id: tasks.id + 1});
-    setId();
-  }; */
-  /*  const newTask = {
-    id: 0,
-    title: "task" + id,
-    completed: false,
-  }; */
 
   const addTask = () => {
-    setTasks({ ...tasks, id: tasks.id + 1 });
+    // Using functional update to ensure the correct state is used
+    setTasks((prevTasks) => [
+      ...prevTasks,
+      { id: prevTasks.length + 1, completed: false, show: true },
+    ]);
   };
 
-  const toggleTask = (id) => {};
+  const removeTask = (taskId) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...tasks, show: !task.show } : task
+      )
+    );
+  };
 
-  const toggleTaskCompletion = () => {};
+  const toggleTask = (taskId) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
+  };
 
   return (
     <div>
       <button onClick={addTask}>Add</button>
-      <button onClick={toggleTask}>Toggle</button>
+      {!tasks.show &&
+        tasks.map((task) => (
+          <div key={task.id}>
+            <p>
+              Task #{task.id} - Completed: {task.completed ? "Yes" : "No"}
+              Task #{task.show} - Show: {task.show ? "Yes" : "No"}
+            </p>
+            <button onClick={() => toggleTask(task.id)}>Toggle</button>
+            <button onClick={() => removeTask(task.id)}>Remove</button>
+          </div>
+        ))}
     </div>
   );
 }
