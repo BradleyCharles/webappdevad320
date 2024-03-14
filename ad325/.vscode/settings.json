@@ -1,0 +1,9 @@
+{
+  "workbench.colorCustomizations": {
+    "[Darcula]": {
+      "editor.background": "#111"
+    },
+    "minimap.background": "#00000000",
+    "scrollbar.shadow": "#00000000"
+  }
+}

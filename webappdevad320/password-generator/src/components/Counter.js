@@ -1,3 +1,5 @@
+import MessageSender from "./MessageSender.js";
+
 const Counter = () => {
   const beep = () => {
     alert("BEEP");

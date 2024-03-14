@@ -1,5 +1,4 @@
 import "./App.css";
-import Counter from "./components/Counter.js";
 import {
   IncreaseOnce,
   IncreaseTwice,
@@ -7,14 +6,19 @@ import {
   IncreaseTwiceCorrect,
 } from "./components/Buttons.js";
 
-export default function App() {
+function App() {
   return (
     <div>
+      <br />
       <IncreaseOnce />
-      <IncreaseTwice />
+      <br />
       <IncreaseDelayed />
+      <br />
+      <IncreaseTwice />
+      <br />
       <IncreaseTwiceCorrect />
-      <Counter />
     </div>
   );
 }
+
+export default App;
