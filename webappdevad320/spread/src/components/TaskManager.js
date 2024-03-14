@@ -7,16 +7,8 @@ function TaskManager() {
     // Using functional update to ensure the correct state is used
     setTasks((prevTasks) => [
       ...prevTasks,
-      { id: prevTasks.length + 1, completed: false, show: true },
+      { id: prevTasks.length + 1, completed: false },
     ]);
-  };
-
-  const removeTask = (taskId) => {
-    setTasks((prevTasks) =>
-      prevTasks.map((task) =>
-        task.id === taskId ? { ...tasks, show: !task.show } : task
-      )
-    );
   };
 
   const toggleTask = (taskId) => {
@@ -30,17 +22,14 @@ function TaskManager() {
   return (
     <div>
       <button onClick={addTask}>Add</button>
-      {!tasks.show &&
-        tasks.map((task) => (
-          <div key={task.id}>
-            <p>
-              Task #{task.id} - Completed: {task.completed ? "Yes" : "No"}
-              Task #{task.show} - Show: {task.show ? "Yes" : "No"}
-            </p>
-            <button onClick={() => toggleTask(task.id)}>Toggle</button>
-            <button onClick={() => removeTask(task.id)}>Remove</button>
-          </div>
-        ))}
+      {tasks.map((task) => (
+        <div key={task.id}>
+          <p>
+            Task #{task.id} - Completed: {task.completed ? "Yes" : "No"}
+          </p>
+          <button onClick={() => toggleTask(task.id)}>Toggle</button>
+        </div>
+      ))}
     </div>
   );
 }
