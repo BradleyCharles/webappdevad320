@@ -53,7 +53,7 @@ function UserInformation() {
       {/* Left Div containing information */}
       <div style={{ marginRight: "20px" }}>
         <h2>User Information</h2>
-        <ul name={"Left UL"} style={{ textAlign: "left" }}>
+        <ul style={{ textAlign: "left" }}>
           <li>
             <strong>Name:</strong> {user.name}
           </li>
